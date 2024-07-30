@@ -1,0 +1,28 @@
+{
+    "Portfolios": [
+        {
+            "Username": "Tommy",
+            "Password": "CS361",
+            "Stocks": [
+                {
+                    "Ticker": "AAPL",
+                    "Average Purchase Price": 84.628,
+                    "Quantity": 30,
+                    "Total Value": 2538.84
+                },
+                {
+                    "Ticker": "MSFT",
+                    "Average Purchase Price": 90.0,
+                    "Quantity": 2,
+                    "Total Value": 180.0
+                },
+                {
+                    "Ticker": "NVDA",
+                    "Average Purchase Price": 90.34,
+                    "Quantity": 11,
+                    "Total Value": 993.74
+                }
+            ]
+        }
+    ]
+}
