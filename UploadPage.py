@@ -13,9 +13,9 @@ class UploadPage:
         print("Welcome to the UPLOAD Page.\n")
         print("If you would likely to quickly populate a large portfolio, \n\
 enter the path to a CSV file holding order history in the following format: \n")
-        print("Order Type('Buy'/'Sell'), Ticker, Quantity, Purchase/Sale Price, Date(YYYY-MM-DD) \n")
+        print("Order Type('Buy'/'Sell'), Ticker, Quantity, Purchase/Sale Price \n")
         print("An example row may look like this:")
-        print("Buy, AAPL, 12, 230.45, 2024-08-01 \n")
+        print("Buy, AAPL, 12, 230.45 \n")
 
         # Accept a valid file path
         file_path = input("Enter File Path Here:")
@@ -46,8 +46,8 @@ enter the path to a CSV file holding order history in the following format: \n")
             with open(file_path, "r") as file:
                 reader = csv.reader(file)
                 for row in reader:
-                    order_type, ticker, quantity, price, date = row
-                    order = Order(ticker, int(quantity), float(price), date)
+                    order_type, ticker, quantity, price = row
+                    order = Order(ticker, int(quantity), float(price))
                     if order_type == 'Buy':
                         self.execute_purchase(order)
                     elif order_type == 'Sell':

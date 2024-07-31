@@ -25,8 +25,7 @@ class BuyPage:
         ticker = self.enter_ticker()
         quantity = self.enter_quantity()
         price = self.enter_price()
-        date = self.enter_date()
-        order = Order(ticker, quantity, price,date)
+        order = Order(ticker, quantity, price)
 
         # User warning
         print("*** Note that all Purchases are final, and can only be reversed with a Sell Order ***")
@@ -45,7 +44,7 @@ class BuyPage:
             return self.display_preview(order)
 
         elif command == 'Redo':
-            self.display_buy_page(self.portfolio)
+            return self.display_buy_page(self.portfolio)
         
         else:
             return ('Home', self.portfolio) 
@@ -152,16 +151,6 @@ class BuyPage:
                 return price
             except:
                 print('\nInvalid Quantity. Must be a float\n')
-
-    def enter_date(self):
-        """Ensure a valid date is entered."""
-
-        while True:
-            date = input('Date (YYYY-MM-DD): ')
-            if date:
-                return date
-            else:
-                print('\nInvalid Date\n')
 
 
   
