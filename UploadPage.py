@@ -64,17 +64,16 @@ enter the path to a CSV file holding order history in the following format: \n")
         for stock in self.portfolio:
             if stock['Ticker'] == order.ticker:
                 found = True
-                added_value = order.quantity * order.price
-                stock['Total Value'] += added_value
+                stock['Total Cost'] = stock['Total Cost'] + order.quantity * order.price
                 stock['Quantity'] += order.quantity
-                stock['Average Purchase Price'] = stock['Total Value'] / stock['Quantity']
+                stock['Average Purchase Price'] = stock['Total Cost'] / stock['Quantity']
 
         if not found:
             # If the stock does not exist in the portfolio
             new_stock = {"Ticker": order.ticker,
                         "Average Purchase Price": order.price,
                         "Quantity": order.quantity,
-                        "Total Value": order.price * order.quantity}
+                        "Total Cost": order.price * order.quantity}
             self.portfolio.append(new_stock)
 
     def execute_sale(self, order):
@@ -92,10 +91,8 @@ enter the path to a CSV file holding order history in the following format: \n")
                     self.portfolio.remove(stock)
                     break
                 # Otherwise subtract the quantity from the position
-                lost_value = order.quantity * order.price
-                stock['Total Value'] -= lost_value
                 stock['Quantity'] -= order.quantity
-                stock['Average Purchase Price'] = stock['Total Value'] / stock['Quantity']
+                stock['Total Cost'] = stock['Average Purchase Price'] * stock['Quantity']
             
         if not found:
             # If the stock does not exist in the portfolio

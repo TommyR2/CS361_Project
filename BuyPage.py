@@ -55,17 +55,16 @@ class BuyPage:
         # If the stock exists in the portfolio
         for stock in self.portfolio:
             if stock['Ticker'] == order.ticker:
-                added_value = order.quantity * order.price
-                stock['Total Value'] = stock['Total Value'] + order.quantity * order.price
+                stock['Total Cost'] = stock['Total Cost'] + order.quantity * order.price
                 stock['Quantity'] += order.quantity
-                stock['Average Purchase Price'] = stock['Total Value'] / stock['Quantity']
+                stock['Average Purchase Price'] = stock['Total Cost'] / stock['Quantity']
                 return ('Home', self.portfolio)
 
         # If the stock does not exist in the portfolio
         new_stock = {"Ticker": order.ticker,
                      "Average Purchase Price": order.price,
                      "Quantity": order.quantity,
-                     "Total Value": order.price * order.quantity}
+                     "Total Cost": order.price * order.quantity}
         self.portfolio.append(new_stock)
         return ('Home', self.portfolio)
     
@@ -78,9 +77,9 @@ class BuyPage:
         found = False
         for stock in mock_portfolio:
             if stock['Ticker'] == order.ticker:
-                stock['Total Value'] = stock['Total Value'] + order.quantity * order.price
+                stock['Total Cost'] = stock['Total Cost'] + order.quantity * order.price
                 stock['Quantity'] += order.quantity
-                stock['Average Purchase Price'] = stock['Total Value'] / stock['Quantity']
+                stock['Average Purchase Price'] = stock['Total Cost'] / stock['Quantity']
                 found = True
 
         # If the stock does not exist in the portfolio
@@ -88,7 +87,7 @@ class BuyPage:
             new_stock = {"Ticker": order.ticker,
                         "Average Purchase Price": order.price,
                         "Quantity": order.quantity,
-                        "Total Value": order.price * order.quantity}
+                        "Total Cost": order.price * order.quantity}
             mock_portfolio.append(new_stock)
 
         # Display the potential portfolio to the user and command options
@@ -119,7 +118,7 @@ class BuyPage:
         headers = {'Ticker': "Ticker",
             "Average Purchase Price": "Average Purchase Price",
             "Quantity" : "Quantity",
-            "Total Value" : "Total Value"}
+            "Total Cost" : "Total Cost"}
         print(tabulate(portfolio, headers=headers))
 
     def enter_ticker(self):

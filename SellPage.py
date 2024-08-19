@@ -68,9 +68,8 @@ class SellPage:
                     return ('Home', self.portfolio)
                 
                 # Otherwise subtract the quantity from the position
-                stock['Total Value'] = stock['Total Value'] - order.quantity * order.price
                 stock['Quantity'] -= order.quantity
-                stock['Average Purchase Price'] = stock['Total Value'] / stock['Quantity']
+                stock['Total Cost'] = stock['Average Purchase Price'] * stock['Quantity']
                 return ('Home', self.portfolio)
             
         # If the stock does not exist in the portfolio
@@ -92,9 +91,8 @@ class SellPage:
                     found = True
                 else:
                     # Otherwise subtract the quantity from the position
-                    stock['Total Value'] = stock['Total Value'] - order.quantity * order.price
                     stock['Quantity'] -= order.quantity
-                    stock['Average sale Price'] = stock['Total Value'] / stock['Quantity']
+                    stock['Total Cost'] = stock['Average Purchase Price'] * stock['Quantity']
                     found = True
                     if stock['Quantity'] < 0:
                         # If the sale quantity is too large, return with the mock portfolio
@@ -134,7 +132,7 @@ class SellPage:
         headers = {'Ticker': "Ticker",
             "Average sale Price": "Average sale Price",
             "Quantity" : "Quantity",
-            "Total Value" : "Total Value"}
+            "Total Cost" : "Total Cost"}
         print(tabulate(portfolio, headers=headers))
 
     def enter_ticker(self):

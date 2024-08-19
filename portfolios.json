@@ -5,30 +5,52 @@
             "Password": "CS361",
             "Stocks": [
                 {
-                    "Ticker": "MSFT",
-                    "Average Purchase Price": 90.0,
-                    "Quantity": 2,
-                    "Total Value": 180.0
-                },
-                {
-                    "Ticker": "NVDA",
-                    "Average Purchase Price": 90.34,
-                    "Quantity": 11,
-                    "Total Value": 993.74
-                },
-                {
-                    "Ticker": "F",
-                    "Average Purchase Price": 105.0,
-                    "Quantity": 10,
-                    "Total Value": 1050.0
-                },
-                {
                     "Ticker": "AAPL",
-                    "Average Purchase Price": 12.5,
+                    "Average Purchase Price": 100.0,
                     "Quantity": 10,
-                    "Total Value": 125.0
+                    "Total Cost": 1000.0
+                },
+                {
+                    "Ticker": "AMZN",
+                    "Average Purchase Price": 190.0,
+                    "Quantity": 100,
+                    "Total Cost": 19000.0
                 }
             ]
+        },
+        {
+            "Username": "J",
+            "Password": "J",
+            "Stocks": [
+                {
+                    "Ticker": "TSLA",
+                    "Average Purchase Price": 12.0,
+                    "Quantity": 12,
+                    "Total Cost": 144.0
+                }
+            ]
+        },
+        {
+            "Username": "Jimmy123",
+            "Password": "Jim",
+            "Stocks": [
+                {
+                    "Ticker": "NVDA",
+                    "Average Purchase Price": 10.0,
+                    "Quantity": 10,
+                    "Total Cost": 100.0
+                }
+            ]
+        },
+        {
+            "Username": "Timothy",
+            "Password": "CS361",
+            "Stocks": []
+        },
+        {
+            "Username": "John",
+            "Password": "CS361",
+            "Stocks": []
         }
     ]
 }

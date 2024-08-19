@@ -25,6 +25,6 @@ class ViewPage:
         headers = {'Ticker': "Ticker",
             "Average Purchase Price": "Average Purchase Price",
             "Quantity" : "Quantity",
-            "Total Value" : "Total Value"}
+            "Total Cost" : "Total Cost"}
         print(tabulate(portfolio, headers=headers))
 

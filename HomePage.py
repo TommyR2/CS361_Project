@@ -13,12 +13,14 @@ class HomePage:
         print("'Buy'  : Enter a purchase order")
         print("'Sell' : Enter a sell order")
         print("'View' : View your current portfolio")
+        print("'Research' : Research an Individual Stock")
         print("'Upload' : Upload a file containing past orders to quickly create a portfolio")
         print("'Reset' : Completely Reset Your Current Portfolio From Scratch")
+        print("'Performance' : View the Performance of your holdings as well as portfolio")
 
         # Validate a Command
         command = input('Enter your desired command here: ')
-        while command not in ('Logout', 'Buy', 'Sell', 'View', 'Upload', 'Reset'):
+        while command not in ('Logout', 'Buy', 'Sell', 'View', 'Upload', 'Reset', 'Research', 'Performance'):
             print('Invalid Command\n')
             command = input('Enter your desired command here: ')
         
@@ -26,7 +28,7 @@ class HomePage:
         if command == "Reset":
             confirmation = input("\n**** WARNING You are about to reset all portfolio history. Please type 'CONFIRM' to execute this command ****.\n")
             if confirmation == "CONFIRM":
-                portfolio = {}
+                portfolio = []
                 print(" \nPortfolio has been reset. \n")
                 return self.display_home_page(portfolio)
             else:

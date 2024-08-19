@@ -6,6 +6,8 @@ from ViewPage import ViewPage
 from PreviewPage import PreviewPage
 from SellPage import SellPage
 from UploadPage import UploadPage
+from ResearchPage import ResearchPage
+from PerformancePage import PerformancePage
 import time
 import json
 
@@ -18,6 +20,8 @@ class PortfolioTracker:
         self.View = ViewPage()
         self.Preview = PreviewPage()
         self.Upload = UploadPage()
+        self.Research = ResearchPage()
+        self.Performance = PerformancePage()
         self.command = 'Login'
         self.user = None
         self.portfolio = None
@@ -57,6 +61,14 @@ class PortfolioTracker:
             elif self.command == 'Upload':
                 self.command = False
                 self.command, self.portfolio = self.Upload.display_upload_page(self.portfolio)
+
+            elif self.command == 'Research':
+                self.command = False
+                self.command, self.portfolio = self.Research.display_research_page(self.portfolio)
+
+            elif self.command == 'Performance':
+                self.command = False
+                self.command, self.portfolio = self.Performance.display_performance_page(self.portfolio)
 
             elif self.command == 'Logout':
                 with open('portfolios.json', 'r') as old_file:
