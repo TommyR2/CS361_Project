@@ -8,6 +8,10 @@ class PerformanceMicroservice:
         with open('performance_request.json', 'r') as file:
             portfolio_data = json.load(file)
             if portfolio_data != {}:
+
+                # Communicate Intention to Terminal
+                print('Analyzing Portfolio Performance... ')
+
                 performance_data = self.analyze_performance(portfolio_data)
                 self.write_response_data(performance_data)
                 return True
@@ -41,14 +45,15 @@ class PerformanceMicroservice:
 
     def write_response_data(self, performance_data):
         with open('performance_response.json', 'w') as file:
-                    json.dump(performance_data, file)
+                    json.dump(performance_data, file, indent=4)
 
     def cleanup_data(self):
-        time.sleep(1)
+        time.sleep(2)
         with open('performance_request.json', 'w') as file:
             json.dump({}, file)
 
     def start(self):
+        print('Starting Performance Microservice...')
         while True:
             action = self.monitor_requests()
             if action:

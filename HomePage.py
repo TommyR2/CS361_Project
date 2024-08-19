@@ -17,10 +17,11 @@ class HomePage:
         print("'Upload' : Upload a file containing past orders to quickly create a portfolio")
         print("'Reset' : Completely Reset Your Current Portfolio From Scratch")
         print("'Performance' : View the Performance of your holdings as well as portfolio")
+        print("'Risk' : View the beta of your holdings as well as portfolio")
 
         # Validate a Command
         command = input('Enter your desired command here: ')
-        while command not in ('Logout', 'Buy', 'Sell', 'View', 'Upload', 'Reset', 'Research', 'Performance'):
+        while command not in ('Logout', 'Buy', 'Sell', 'View', 'Upload', 'Reset', 'Research', 'Performance', 'Risk'):
             print('Invalid Command\n')
             command = input('Enter your desired command here: ')
         

@@ -13,6 +13,10 @@ class LoginMicroservice:
             if login_request != {}:
                 request_type = login_request['account_type']
                 username = login_request['username']
+
+                # Communicate Intention to Terminal
+                print(f'Verifying username {username}')
+
                 password = login_request['password']
                 response = self.validate_requests(request_type, username, password)
                 self.send_response(response)
@@ -54,11 +58,12 @@ class LoginMicroservice:
                 json.dump(portfolio_data, file, indent=4)
 
     def cleanup_data(self):
-        time.sleep(1)
+        time.sleep(2)
         with open('login_requests.json', 'w') as file:
-            json.dump({}, file)
+            json.dump({}, file, indent=4)
         
     def start(self):
+        print('Starting Login Microservice...')
         while True:
             action = self.monitor_requests()
             if action:
